@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MvvmCross.Uno" Version="6.4.0" />
+    <PackageReference Include="MvvmCross.Uno.Plugins" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>
