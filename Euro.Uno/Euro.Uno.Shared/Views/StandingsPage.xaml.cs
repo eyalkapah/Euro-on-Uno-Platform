@@ -1,6 +1,4 @@
-﻿using Euro.Core.ViewModels;
-using MvvmCross;
-using MvvmCross.Platforms.Uap.Views;
+﻿using MvvmCross.Platforms.Uap.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,10 +21,9 @@ namespace Euro.Uno.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : MvxWindowsPage
+    public sealed partial class StandingsPage : MvxWindowsPage
     {
-        public HomeViewModel Vm => DataContext as HomeViewModel;
-        public HomePage()
+        public StandingsPage()
         {
             this.InitializeComponent();
         }

@@ -1,5 +1,6 @@
 ﻿<linker>
   <assembly fullname="MvvmCross.Uno" />
+  <assembly fullname="MvvmCross.Uno.Plugins" />
   <assembly fullname="Euro.Uno.Wasm" />
   <assembly fullname="Uno.UI" />
 
