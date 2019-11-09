@@ -59,7 +59,7 @@ namespace Euro.Core.ViewModels
                 },
                 new NavigationItem
                 {
-                    Title = "Matches",
+                    Title = "Matches Dialog",
                     Glyph = IconsHelper.Play,
                     TargetType = typeof(MatchesViewModel)
                 }

@@ -1,4 +1,5 @@
-﻿using MvvmCross.Platforms.Uap.Views;
+﻿using MvvmCross.Platforms.Uap.Presenters.Attributes;
+using MvvmCross.Platforms.Uap.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,7 +22,9 @@ namespace Euro.Uno.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class StandingsPage : MvxWindowsPage
+
+    [MvxRegionPresentation("FrameContent")]
+    public sealed partial class StandingsPage
     {
         public StandingsPage()
         {
