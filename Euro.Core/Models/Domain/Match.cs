@@ -8,6 +8,7 @@ namespace Euro.Core.Models.Domain
 {
     public class Match
     {
+        public char Group { get; set; }
         public int GuestScored { get; set; }
         public string GuestTeamFlag { get; set; }
         public string GuestTeamName { get; set; }
@@ -16,7 +17,6 @@ namespace Euro.Core.Models.Domain
         public string HostTeamName { get; set; }
         public int MatchId { get; set; }
         public DateTime PlayDateTime { get; set; }
-
         public string Result => $"{HostScored}-{GuestScored}";
     }
 }

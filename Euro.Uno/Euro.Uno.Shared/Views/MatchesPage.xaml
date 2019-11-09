@@ -49,6 +49,7 @@
                         <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="GroupCol" Width="1*" />
                         <ColumnDefinition x:Name="HostTeamNameCol" Width="2*" />
                         <ColumnDefinition x:Name="HostTeamFlagCol" Width="50px" />
                         <ColumnDefinition x:Name="ResultCol" Width="*" />
@@ -56,7 +57,28 @@
                         <ColumnDefinition x:Name="GuestTeamNameCol" Width="2*" />
                     </Grid.ColumnDefinitions>
 
+                    <Grid HorizontalAlignment="Left">
+                        <Ellipse
+                            Width="48"
+                            Height="48"
+                            Margin="5,0"
+                            Stroke="#8B1207"
+                            StrokeThickness="1" />
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock
+                                Margin="0,0,0,-5"
+                                HorizontalAlignment="Center"
+                                FontSize="12"
+                                Text="Group" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                FontSize="18"
+                                Text="{x:Bind Group}" />
+                        </StackPanel>
+                    </Grid>
+
                     <TextBlock
+                        Grid.Column="1"
                         Margin="5,0,0,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
@@ -64,7 +86,7 @@
                         Text="{x:Bind HostTeamName, Mode=OneWay}" />
 
                     <Image
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Width="32"
                         Height="32"
                         Margin="5,0,0,0"
@@ -72,7 +94,7 @@
                         Source="{x:Bind HostTeamFlag, Mode=OneWay}" />
 
                     <TextBlock
-                        Grid.Column="2"
+                        Grid.Column="3"
                         Margin="20,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -80,7 +102,7 @@
                         Text="{x:Bind Result, Mode=OneWay}" />
 
                     <Image
-                        Grid.Column="3"
+                        Grid.Column="4"
                         Width="32"
                         Height="32"
                         HorizontalAlignment="Left"
@@ -88,7 +110,7 @@
                         Source="{x:Bind GuestTeamFlag, Mode=OneWay}" />
 
                     <TextBlock
-                        Grid.Column="4"
+                        Grid.Column="5"
                         Margin="5,0,0,0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"

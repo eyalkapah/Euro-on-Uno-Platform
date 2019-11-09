@@ -33,7 +33,8 @@ namespace Euro.Core.ViewModels
                     GuestTeamFlag = Flags.CzechRepublic,
                     HostScored = 5,
                     GuestScored = 0,
-                    PlayDateTime = new DateTime(2019, 3, 22)
+                    PlayDateTime = new DateTime(2019, 3, 22),
+                    Group = 'A'
                 },
                 new Match
                 {
@@ -43,7 +44,8 @@ namespace Euro.Core.ViewModels
                     GuestTeamFlag = Flags.Montenegro,
                     HostScored = 1,
                     GuestScored = 1,
-                    PlayDateTime = new DateTime(2019, 3, 22)
+                    PlayDateTime = new DateTime(2019, 3, 22),
+                    Group = 'A'
                 }
             };
 
