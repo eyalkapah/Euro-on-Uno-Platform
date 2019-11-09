@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\FlagsConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ToLongDateConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -50,6 +52,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\bul.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\cze.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\eng.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\KOS.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\LTU.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\LUX.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\mne.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\POR.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\SRB.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\UKR.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LockScreenLogo.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-200.png" />
@@ -62,6 +74,6 @@
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
   </ItemGroup>
 </Project>

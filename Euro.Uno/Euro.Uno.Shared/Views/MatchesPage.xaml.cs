@@ -24,10 +24,10 @@ namespace Euro.Uno.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    [MvxViewFor(typeof(MatchesViewModel))]
-    [MvxDialogViewPresentation]
-    public sealed partial class MatchesPage : MvxWindowsContentDialog
+    [MvxRegionPresentation("FrameContent")]
+    public sealed partial class MatchesPage : MvxWindowsPage
     {
+        public MatchesViewModel Vm => DataContext as MatchesViewModel;
         public MatchesPage()
         {
             this.InitializeComponent();

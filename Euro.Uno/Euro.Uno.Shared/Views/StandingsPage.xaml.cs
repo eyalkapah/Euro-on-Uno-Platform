@@ -24,7 +24,7 @@ namespace Euro.Uno.Shared.Views
     /// </summary>
 
     [MvxRegionPresentation("FrameContent")]
-    public sealed partial class StandingsPage
+    public sealed partial class StandingsPage : MvxWindowsPage
     {
         public StandingsPage()
         {

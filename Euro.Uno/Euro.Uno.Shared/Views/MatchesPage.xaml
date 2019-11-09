@@ -1,15 +1,101 @@
-﻿<views:MvxWindowsContentDialog
+﻿<views:MvxWindowsPage
     x:Class="Euro.Uno.Shared.Views.MatchesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Euro.Uno.Shared.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:domain="using:Euro.Core.Models.Domain"
     xmlns:local="using:Euro.Uno.Shared.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:MvvmCross.Platforms.Uap.Views"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+    <Page.Resources>
 
-    <Grid>
-        <TextBlock FontSize="36" Text="Matches" />
-    </Grid>
-</views:MvxWindowsContentDialog>
+        <ResourceDictionary>
+            <converters:FlagsConverter x:Key="FlagsConverter" />
+            <converters:ToLongDateConverter x:Key="ToLongDateConverter" />
+            <CollectionViewSource
+                x:Name="GroupedMatchesCVS"
+                IsSourceGrouped="True"
+                Source="{x:Bind Vm.GroupedMatches, Mode=OneWay}" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <ListView ItemsSource="{Binding Source={StaticResource GroupedMatchesCVS}}" SelectionMode="None">
+        <ListView.GroupStyle>
+            <GroupStyle>
+                <GroupStyle.HeaderTemplate>
+                    <DataTemplate>
+
+                        <TextBlock
+                            Margin="0,5"
+                            FontSize="27"
+                            Text="{Binding Key, Converter={StaticResource ToLongDateConverter}}" />
+                    </DataTemplate>
+                </GroupStyle.HeaderTemplate>
+            </GroupStyle>
+        </ListView.GroupStyle>
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            </Style>
+        </ListView.ItemContainerStyle>
+
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="domain:Match">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="HostTeamNameCol" Width="2*" />
+                        <ColumnDefinition x:Name="HostTeamFlagCol" Width="50px" />
+                        <ColumnDefinition x:Name="ResultCol" Width="*" />
+                        <ColumnDefinition x:Name="GuestTeamFlagCol" Width="50px" />
+                        <ColumnDefinition x:Name="GuestTeamNameCol" Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="5,0,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="{x:Bind HostTeamName, Mode=OneWay}" />
+
+                    <Image
+                        Grid.Column="1"
+                        Width="32"
+                        Height="32"
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Source="{x:Bind HostTeamFlag, Mode=OneWay}" />
+
+                    <TextBlock
+                        Grid.Column="2"
+                        Margin="20,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="{x:Bind Result, Mode=OneWay}" />
+
+                    <Image
+                        Grid.Column="3"
+                        Width="32"
+                        Height="32"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Source="{x:Bind GuestTeamFlag, Mode=OneWay}" />
+
+                    <TextBlock
+                        Grid.Column="4"
+                        Margin="5,0,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="16"
+                        Text="{x:Bind GuestTeamName, Mode=OneWay}" />
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</views:MvxWindowsPage>

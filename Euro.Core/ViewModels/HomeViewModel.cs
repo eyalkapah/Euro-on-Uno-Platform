@@ -37,8 +37,6 @@ namespace Euro.Core.ViewModels
             IMvxLogProvider logProvider,
             IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
-            ShowSecondPageCommand =
-                new MvxAsyncCommand(async () => await NavigationService.Navigate<SecondViewModel>());
         }
 
         public override Task Initialize()
@@ -59,7 +57,7 @@ namespace Euro.Core.ViewModels
                 },
                 new NavigationItem
                 {
-                    Title = "Matches Dialog",
+                    Title = "Matches",
                     Glyph = IconsHelper.Play,
                     TargetType = typeof(MatchesViewModel)
                 }
