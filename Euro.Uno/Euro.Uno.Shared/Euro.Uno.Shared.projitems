@@ -52,16 +52,36 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\aut.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\aze.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\bel.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\blr.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\bul.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\cro.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\cyp.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\cze.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\eng.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\KOS.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\LTU.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\LUX.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\est.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\hun.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\isr.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\kaz.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\kos.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\ltu.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\lux.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\lva.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\mkd.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\mne.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\POR.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\SRB.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\UKR.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\ned.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\nir.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\pol.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\por.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\rus.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\sco.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\smr.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\srb.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\svk.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\svn.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\ukr.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LockScreenLogo.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-200.png" />
@@ -72,8 +92,5 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
   </ItemGroup>
 </Project>

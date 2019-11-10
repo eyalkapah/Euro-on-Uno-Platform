@@ -1,4 +1,5 @@
-﻿using Euro.Core.Models.Domain;
+﻿using Euro.Core.Data;
+using Euro.Core.Models.Domain;
 using Euro.Core.Models.UI;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
@@ -23,31 +24,7 @@ namespace Euro.Core.ViewModels
 
         public override Task Initialize()
         {
-            _matches = new List<Match>
-            {
-                new Match
-                {
-                    HostTeamName = "England",
-                    HostTeamFlag = Flags.England,
-                    GuestTeamName = "Czech Repulibc",
-                    GuestTeamFlag = Flags.CzechRepublic,
-                    HostScored = 5,
-                    GuestScored = 0,
-                    PlayDateTime = new DateTime(2019, 3, 22),
-                    Group = 'A'
-                },
-                new Match
-                {
-                    HostTeamName = "Bulgaria",
-                    HostTeamFlag = Flags.Bulgaria,
-                    GuestTeamName = "Montenegro",
-                    GuestTeamFlag = Flags.Montenegro,
-                    HostScored = 1,
-                    GuestScored = 1,
-                    PlayDateTime = new DateTime(2019, 3, 22),
-                    Group = 'A'
-                }
-            };
+            _matches = DummyMatches.GetDummyMatches();
 
             GroupedMatches = from m in _matches
                              group m by m.PlayDateTime into g

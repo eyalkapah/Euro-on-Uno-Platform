@@ -27,9 +27,8 @@
             <GroupStyle>
                 <GroupStyle.HeaderTemplate>
                     <DataTemplate>
-
                         <TextBlock
-                            Margin="0,5"
+                            Margin="0,32,0,0"
                             FontSize="27"
                             Text="{Binding Key, Converter={StaticResource ToLongDateConverter}}" />
                     </DataTemplate>
@@ -46,7 +45,8 @@
             <DataTemplate x:DataType="domain:Match">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="60" />
+                        <RowDefinition Height="76" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="GroupCol" Width="1*" />
@@ -116,6 +116,12 @@
                         VerticalAlignment="Center"
                         FontSize="16"
                         Text="{x:Bind GuestTeamName, Mode=OneWay}" />
+
+                    <Border
+                        Grid.Row="1"
+                        Grid.ColumnSpan="6"
+                        BorderBrush="#b6b4b6"
+                        BorderThickness="0.3" />
                 </Grid>
             </DataTemplate>
         </ListView.ItemTemplate>
