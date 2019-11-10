@@ -8,8 +8,9 @@ namespace Euro.Core.Utils
 {
     public static class IconsHelper
     {
-        public const string Home = "\uE80F";
-        public const string Play = "\uE768";
         public const string Group = "\uE902";
+        public const string Home = "\uE80F";
+        public const string Like = "\uE8E1";
+        public const string Play = "\uE768";
     }
 }

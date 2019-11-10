@@ -1,5 +1,5 @@
 ﻿<views:MvxWindowsPage
-    x:Class="Euro.Uno.Shared.Views.MatchesPage"
+    x:Class="Euro.Uno.Shared.Views.BetsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Euro.Uno.Shared.Converters"
@@ -10,19 +10,20 @@
     xmlns:views="using:MvvmCross.Platforms.Uap.Views"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
     <Page.Resources>
 
         <ResourceDictionary>
             <converters:FlagsConverter x:Key="FlagsConverter" />
             <converters:ToLongDateConverter x:Key="ToLongDateConverter" />
             <CollectionViewSource
-                x:Name="GroupedMatchesCVS"
+                x:Name="GroupedBetsCVS"
                 IsSourceGrouped="True"
-                Source="{x:Bind Vm.GroupedMatches, Mode=OneWay}" />
+                Source="{x:Bind Vm.GroupedBets, Mode=OneWay}" />
         </ResourceDictionary>
     </Page.Resources>
 
-    <ListView ItemsSource="{Binding Source={StaticResource GroupedMatchesCVS}}" SelectionMode="None">
+    <ListView ItemsSource="{Binding Source={StaticResource GroupedBetsCVS}}" SelectionMode="None">
         <ListView.GroupStyle>
             <GroupStyle>
                 <GroupStyle.HeaderTemplate>
@@ -42,7 +43,7 @@
         </ListView.ItemContainerStyle>
 
         <ListView.ItemTemplate>
-            <DataTemplate x:DataType="domain:Match">
+            <DataTemplate x:DataType="domain:Bet">
                 <Grid HorizontalAlignment="Stretch">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="56" />
@@ -73,7 +74,7 @@
                             <TextBlock
                                 HorizontalAlignment="Center"
                                 FontSize="18"
-                                Text="{x:Bind Group}" />
+                                Text="{x:Bind Match.Group}" />
                         </StackPanel>
                     </Grid>
 
@@ -83,7 +84,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         FontSize="16"
-                        Text="{x:Bind HostTeamName, Mode=OneWay}" />
+                        Text="{x:Bind Match.HostTeamName, Mode=OneWay}" />
 
                     <Image
                         Grid.Column="2"
@@ -91,7 +92,7 @@
                         Height="32"
                         Margin="5,0,0,0"
                         VerticalAlignment="Center"
-                        Source="{x:Bind HostTeamFlag, Mode=OneWay}" />
+                        Source="{x:Bind Match.HostTeamFlag, Mode=OneWay}" />
 
                     <TextBlock
                         Grid.Column="3"
@@ -99,7 +100,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="18"
-                        Text="{x:Bind Result, Mode=OneWay}" />
+                        Text="{x:Bind Match.Result, Mode=OneWay}" />
 
                     <Image
                         Grid.Column="4"
@@ -107,7 +108,7 @@
                         Height="32"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        Source="{x:Bind GuestTeamFlag, Mode=OneWay}" />
+                        Source="{x:Bind Match.GuestTeamFlag, Mode=OneWay}" />
 
                     <TextBlock
                         Grid.Column="5"
@@ -115,7 +116,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         FontSize="16"
-                        Text="{x:Bind GuestTeamName, Mode=OneWay}" />
+                        Text="{x:Bind Match.GuestTeamName, Mode=OneWay}" />
 
                     <Border
                         Grid.Row="1"

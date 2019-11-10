@@ -51,6 +51,12 @@ namespace Euro.Core.ViewModels
                 },
                 new NavigationItem
                 {
+                    Title = "Bets",
+                    Glyph = IconsHelper.Like,
+                    TargetType = typeof(BetsViewModel)
+                },
+                new NavigationItem
+                {
                     Title = "Standings",
                     Glyph = IconsHelper.Group,
                     TargetType = typeof(StandingsViewModel)

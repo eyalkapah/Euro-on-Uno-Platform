@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Data;
 
 namespace Euro.Core.ViewModels
 {
@@ -17,6 +18,7 @@ namespace Euro.Core.ViewModels
         private List<Match> _matches;
 
         public IOrderedEnumerable<IGrouping<DateTime, Match>> GroupedMatches { get; private set; }
+        public CollectionViewSource GroupedMatchesCVS { get; set; }
 
         public MatchesViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
         {
@@ -30,6 +32,12 @@ namespace Euro.Core.ViewModels
                              group m by m.PlayDateTime into g
                              orderby g.Key
                              select g;
+
+            //GroupedMatchesCVS = new CollectionViewSource
+            //{
+            //    Source = GroupedMatches,
+            //    IsSourceGrouped = true
+            //};
 
             return Task.CompletedTask;
         }

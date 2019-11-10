@@ -2,9 +2,6 @@
 using Euro.Core.Models.UI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Euro.Core.Data
 {
@@ -16,6 +13,7 @@ namespace Euro.Core.Data
             {
                 new Match
                 {
+                    MatchId = 1,
                     HostTeamName = "England",
                     HostTeamFlag = Flags.England,
                     GuestTeamName = "Czech Repulibc",
@@ -27,6 +25,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 2,
                     HostTeamName = "Bulgaria",
                     HostTeamFlag = Flags.Bulgaria,
                     GuestTeamName = "Montenegro",
@@ -38,6 +37,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 3,
                     HostTeamName = "Kazakhstan",
                     HostTeamFlag = Flags.Kazakhstan,
                     GuestTeamName = "Scotland",
@@ -49,6 +49,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 4,
                     HostTeamName = "Cyprus",
                     HostTeamFlag = Flags.Cyprus,
                     GuestTeamName = "San Marino",
@@ -60,6 +61,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 5,
                     HostTeamName = "Northern Ireland",
                     HostTeamFlag = Flags.NorthernIreland,
                     GuestTeamName = "Estonia",
@@ -71,6 +73,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 6,
                     HostTeamName = "Netherlands",
                     HostTeamFlag = Flags.Netherlands,
                     GuestTeamName = "Belarus",
@@ -82,6 +85,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 7,
                     HostTeamName = "Slovakia",
                     HostTeamFlag = Flags.Slovakia,
                     GuestTeamName = "Hungary",
@@ -93,6 +97,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 8,
                     HostTeamName = "Croatia",
                     HostTeamFlag = Flags.Croatia,
                     GuestTeamName = "Azerbaijan",
@@ -104,6 +109,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 9,
                     HostTeamName = "Israel",
                     HostTeamFlag = Flags.Israel,
                     GuestTeamName = "Slovenia",
@@ -115,6 +121,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 10,
                     HostTeamName = "North Macedonia",
                     HostTeamFlag = Flags.NorthMacedonia,
                     GuestTeamName = "Latvia",
@@ -126,6 +133,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 11,
                     HostTeamName = "Austria",
                     HostTeamFlag = Flags.Austria,
                     GuestTeamName = "Poland",
@@ -137,6 +145,7 @@ namespace Euro.Core.Data
                 },
                 new Match
                 {
+                    MatchId = 12,
                     HostTeamName = "Belgium",
                     HostTeamFlag = Flags.Belgium,
                     GuestTeamName = "Russia",
