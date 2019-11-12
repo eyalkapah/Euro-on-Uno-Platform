@@ -1,17 +1,19 @@
-﻿<views:MvxWindowsPage
+﻿<local:RootPage
     x:Class="Euro.Uno.Shared.Views.BetsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Euro.Uno.Shared.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:domain="using:Euro.Core.Models.Domain"
+    xmlns:inappnotification="using:Euro.Uno.Shared.CustomControls.InAppNotification"
     xmlns:local="using:Euro.Uno.Shared.Views"
+    xmlns:logobarcontrol="using:Euro.Uno.Shared.CustomControls.LogoBarControl"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="using:MvvmCross.Platforms.Uap.Views"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Page.Resources>
+    <local:RootPage.Resources>
 
         <ResourceDictionary>
             <converters:FlagsConverter x:Key="FlagsConverter" />
@@ -21,110 +23,161 @@
                 IsSourceGrouped="True"
                 Source="{x:Bind Vm.GroupedBets, Mode=OneWay}" />
         </ResourceDictionary>
-    </Page.Resources>
+    </local:RootPage.Resources>
 
-    <ListView ItemsSource="{Binding Source={StaticResource GroupedBetsCVS}}" SelectionMode="None">
-        <ListView.GroupStyle>
-            <GroupStyle>
-                <GroupStyle.HeaderTemplate>
-                    <DataTemplate>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CommandBar
+            Background="Transparent"
+            DefaultLabelPosition="Right"
+            IsOpen="False">
+            <AppBarButton Icon="Save" Label="Save" />
+            <AppBarButton Icon="ReShare" Label="Share" />
+            <AppBarButton Icon="Edit" Label="Edit" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Setting" Label="Settings" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+
+        <ListView
+            Grid.Row="1"
+            ItemsSource="{Binding Source={StaticResource GroupedBetsCVS}}"
+            SelectionMode="None">
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Margin="0,32,0,0"
+                                FontSize="27"
+                                Text="{Binding Key, Converter={StaticResource ToLongDateConverter}}" />
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="domain:Bet">
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="56" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="GroupCol" Width="1*" />
+                            <ColumnDefinition x:Name="HostTeamNameCol" Width="2*" />
+                            <ColumnDefinition x:Name="HostTeamFlagCol" Width="Auto" />
+                            <ColumnDefinition x:Name="ResultCol" Width="2*" />
+                            <ColumnDefinition x:Name="GuestTeamFlagCol" Width="Auto" />
+                            <ColumnDefinition x:Name="GuestTeamNameCol" Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid HorizontalAlignment="Left">
+                            <Ellipse
+                                Width="48"
+                                Height="48"
+                                Margin="5,0"
+                                Stroke="#8B1207"
+                                StrokeThickness="1" />
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock
+                                    Margin="0,0,0,-5"
+                                    HorizontalAlignment="Center"
+                                    FontSize="12"
+                                    Text="Group" />
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    FontSize="18"
+                                    Text="{x:Bind Match.Group}" />
+                            </StackPanel>
+                        </Grid>
+
                         <TextBlock
-                            Margin="0,32,0,0"
-                            FontSize="27"
-                            Text="{Binding Key, Converter={StaticResource ToLongDateConverter}}" />
-                    </DataTemplate>
-                </GroupStyle.HeaderTemplate>
-            </GroupStyle>
-        </ListView.GroupStyle>
-        <ListView.ItemContainerStyle>
-            <Style TargetType="ListViewItem">
-                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            </Style>
-        </ListView.ItemContainerStyle>
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{x:Bind Match.HostTeamName, Mode=OneWay}" />
 
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="domain:Bet">
-                <Grid HorizontalAlignment="Stretch">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="56" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="GroupCol" Width="1*" />
-                        <ColumnDefinition x:Name="HostTeamNameCol" Width="2*" />
-                        <ColumnDefinition x:Name="HostTeamFlagCol" Width="Auto" />
-                        <ColumnDefinition x:Name="ResultCol" Width="*" />
-                        <ColumnDefinition x:Name="GuestTeamFlagCol" Width="Auto" />
-                        <ColumnDefinition x:Name="GuestTeamNameCol" Width="2*" />
-                    </Grid.ColumnDefinitions>
+                        <Image
+                            Grid.Column="2"
+                            Width="32"
+                            Height="32"
+                            Margin="5,0,0,0"
+                            VerticalAlignment="Center"
+                            Source="{x:Bind Match.HostTeamFlag, Mode=OneWay}" />
 
-                    <Grid HorizontalAlignment="Left">
-                        <Ellipse
-                            Width="48"
-                            Height="48"
-                            Margin="5,0"
-                            Stroke="#8B1207"
-                            StrokeThickness="1" />
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock
-                                Margin="0,0,0,-5"
-                                HorizontalAlignment="Center"
-                                FontSize="12"
-                                Text="Group" />
-                            <TextBlock
-                                HorizontalAlignment="Center"
+                        <StackPanel
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBox
+                                Margin="20,0"
                                 FontSize="18"
-                                Text="{x:Bind Match.Group}" />
+                                MaxLength="2" />
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="18"
+                                Text="-" />
+                            <TextBox
+                                Margin="20,0"
+                                FontSize="18"
+                                MaxLength="2" />
                         </StackPanel>
-                    </Grid>
-
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="5,0,0,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="{x:Bind Match.HostTeamName, Mode=OneWay}" />
-
-                    <Image
-                        Grid.Column="2"
-                        Width="32"
-                        Height="32"
-                        Margin="5,0,0,0"
-                        VerticalAlignment="Center"
-                        Source="{x:Bind Match.HostTeamFlag, Mode=OneWay}" />
-
-                    <TextBlock
-                        Grid.Column="3"
+                        <!--<TextBlock                        Grid.Column="3">
+                        </TextBlock>
                         Margin="20,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         FontSize="18"
-                        Text="{x:Bind Match.Result, Mode=OneWay}" />
+                        Text="{x:Bind Match.Result, Mode=OneWay}" />-->
 
-                    <Image
-                        Grid.Column="4"
-                        Width="32"
-                        Height="32"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Source="{x:Bind Match.GuestTeamFlag, Mode=OneWay}" />
+                        <Image
+                            Grid.Column="4"
+                            Width="32"
+                            Height="32"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Source="{x:Bind Match.GuestTeamFlag, Mode=OneWay}" />
 
-                    <TextBlock
-                        Grid.Column="5"
-                        Margin="5,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        Text="{x:Bind Match.GuestTeamName, Mode=OneWay}" />
+                        <TextBlock
+                            Grid.Column="5"
+                            Margin="5,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="{x:Bind Match.GuestTeamName, Mode=OneWay}" />
 
-                    <Border
-                        Grid.Row="1"
-                        Grid.ColumnSpan="6"
-                        BorderBrush="#b6b4b6"
-                        BorderThickness="0.3" />
-                </Grid>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
-</views:MvxWindowsPage>
+                        <Border
+                            Grid.Row="1"
+                            Grid.ColumnSpan="6"
+                            BorderBrush="#b6b4b6"
+                            BorderThickness="0.3" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <inappnotification:InAppNotification
+            x:Name="ExampleInAppNotification"
+            Grid.Row="1"
+            AnimationDuration="00:00:00.1000000"
+            Content="This is a test message."
+            HorizontalOffset="0"
+            ShowDismissButton="True"
+            StackMode="Replace"
+            VerticalOffset="100" />
+    </Grid>
+</local:RootPage>

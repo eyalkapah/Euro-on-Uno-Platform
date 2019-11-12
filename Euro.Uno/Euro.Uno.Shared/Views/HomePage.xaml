@@ -2,6 +2,7 @@
     x:Class="Euro.Uno.Shared.Views.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:logobarcontrol="using:Euro.Uno.Shared.CustomControls.LogoBarControl"
     xmlns:ui1="using:Euro.Core.Models.UI"
     xmlns:views="using:MvvmCross.Platforms.Uap.Views"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -28,17 +29,24 @@
                     </Grid>-->
                 </DataTemplate>
             </NavigationView.MenuItemTemplate>
-            <Frame x:Name="FrameContent">
-                <Frame.ContentTransitions>
-                    <TransitionCollection>
-                        <NavigationThemeTransition>
-                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                                <EntranceNavigationTransitionInfo />
-                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                        </NavigationThemeTransition>
-                    </TransitionCollection>
-                </Frame.ContentTransitions>
-            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <logobarcontrol:LogoBarControl />
+                <Frame x:Name="FrameContent" Grid.Row="1">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition>
+                                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                    <EntranceNavigationTransitionInfo />
+                                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                            </NavigationThemeTransition>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </Grid>
         </NavigationView>
 
         <!--<VisualStateManager.VisualStateGroups>

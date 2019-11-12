@@ -24,9 +24,10 @@ namespace Euro.Uno.Shared.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     [MvxRegionPresentation("FrameContent")]
-    public sealed partial class BetsPage : MvxWindowsPage
+    public sealed partial class BetsPage : RootPage
     {
         public BetsViewModel Vm => DataContext as BetsViewModel;
+
         public BetsPage()
         {
             this.InitializeComponent();

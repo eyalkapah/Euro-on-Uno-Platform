@@ -20,6 +20,18 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\FlagsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\ToLongDateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.AttachedProperties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.Events.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotificationClosedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotificationClosingEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotificationDismissKind.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotificationOpeningEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\NotificationOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\StackMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CustomControls\LogoBarControl\LogoBarControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -32,12 +44,29 @@
     <Compile Include="$(MSBuildThisFileDirectory)Views\MatchesPage.xaml.cs">
       <DependentUpon>MatchesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\RootPage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\StandingsPage.xaml.cs">
       <DependentUpon>StandingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\InAppNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\Styles\MSEdgeNotificationStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)CustomControls\InAppNotification\Styles\VSCodeNotificationStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)CustomControls\LogoBarControl\LogoBarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -59,6 +88,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\bg_header.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\aut.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\aze.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\bel.png" />
@@ -90,6 +120,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\svn.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Flags\ukr.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\logo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Square44x44Logo.scale-200.png" />
