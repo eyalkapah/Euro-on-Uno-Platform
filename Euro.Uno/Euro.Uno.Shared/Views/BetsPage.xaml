@@ -24,10 +24,10 @@
                 Source="{x:Bind Vm.GroupedBets, Mode=OneWay}" />
 
             <DataTemplate x:Key="InAppNotificationWithButtonsTemplate">
-                <Grid Background="Black">
+                <Grid>
                     <TextBlock
-                        Padding="0"
                         Margin="8"
+                        Padding="0"
                         FontSize="16"
                         Foreground="White"
                         Text="We saved your bet. Goodluck!" />
@@ -187,6 +187,7 @@
             x:Name="ExampleInAppNotification"
             Grid.Row="2"
             AnimationDuration="00:00:00.1000000"
+            Background="Black"
             Content="This is a test message."
             HorizontalOffset="0"
             ShowDismissButton="True"

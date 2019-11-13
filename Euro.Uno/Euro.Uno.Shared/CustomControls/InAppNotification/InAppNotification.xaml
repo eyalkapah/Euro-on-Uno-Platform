@@ -5,13 +5,10 @@
     xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
     xmlns:customControls="using:Euro.Uno.Shared.CustomControls.InAppNotification">
 
-
     <ResourceDictionary.MergedDictionaries>
         <!--<ResourceDictionary Source="Styles\MSEdgeNotificationStyle.xaml" />-->
         <!--<ResourceDictionary Source="Styles\VSCodeNotificationStyle.xaml" />-->
-
     </ResourceDictionary.MergedDictionaries>
-
 
     <SolidColorBrush x:Key="SystemControlMSEdgeNotificationPointerOverChromeBrush" Color="Transparent" />
     <SolidColorBrush x:Key="SystemControlMSEdgeNotificationPointerOverForegroundBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
@@ -117,7 +114,7 @@
                 <Button
                     x:Name="PART_DismissButton"
                     Grid.Column="1"
-                    Margin="24,0,0,0"
+                    Margin="24,0,16,0"
                     AutomationProperties.Name="Dismiss"
                     Content="&#xE894;"
                     FontFamily="Segoe MDL2 Assets"
@@ -201,5 +198,4 @@
     <contract7Present:Style BasedOn="{StaticResource BaseInAppNotificationsStyle}" TargetType="customControls:InAppNotification">
         <Setter Property="Background" Value="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}" />
     </contract7Present:Style>
-
 </ResourceDictionary>
