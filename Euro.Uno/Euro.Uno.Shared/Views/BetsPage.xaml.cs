@@ -24,7 +24,7 @@ namespace Euro.Uno.Shared.Views
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     [MvxRegionPresentation("FrameContent")]
-    public sealed partial class BetsPage : RootPage
+    public sealed partial class BetsPage : BetRootPage
     {
         public BetsViewModel Vm => DataContext as BetsViewModel;
         private ResourceDictionary _resources;
@@ -33,18 +33,21 @@ namespace Euro.Uno.Shared.Views
         {
             this.InitializeComponent();
 
+            base.RegisterStripModule(ExampleInAppNotification);
             _resources = this.Resources;
         }
 
         private void ShowInAppNotification_Click(object sender, RoutedEventArgs e)
         {
-            object inAppNotificationWithButtonsTemplate = null;
-            bool? isTemplatePresent = _resources?.TryGetValue("InAppNotificationWithButtonsTemplate", out inAppNotificationWithButtonsTemplate);
+            ExampleInAppNotification.Show(3000);
 
-            if (isTemplatePresent == true && inAppNotificationWithButtonsTemplate is DataTemplate template)
-            {
-                ExampleInAppNotification.Show(template, 0);
-            }
+            //object inAppNotificationWithButtonsTemplate = null;
+            //bool? isTemplatePresent = _resources?.TryGetValue("InAppNotificationWithButtonsTemplate", out inAppNotificationWithButtonsTemplate);
+
+            //if (isTemplatePresent == true && inAppNotificationWithButtonsTemplate is DataTemplate template)
+            //{
+            //    ExampleInAppNotification.Show(5);
+            //}
         }
     }
 }

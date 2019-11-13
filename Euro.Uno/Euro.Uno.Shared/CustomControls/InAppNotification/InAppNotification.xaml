@@ -114,8 +114,9 @@
                 <Button
                     x:Name="PART_DismissButton"
                     Grid.Column="1"
-                    Margin="24,0,16,0"
+                    Margin="24,0,24,0"
                     AutomationProperties.Name="Dismiss"
+                    Background="White"
                     Content="&#xE894;"
                     FontFamily="Segoe MDL2 Assets"
                     FontSize="16"

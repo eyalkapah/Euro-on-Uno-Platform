@@ -1,5 +1,6 @@
 ﻿using Euro.Core.Data;
 using Euro.Core.Models.Domain;
+using Euro.Core.Services;
 using MvvmCross.Commands;
 using MvvmCross.Logging;
 using MvvmCross.Navigation;
@@ -17,9 +18,9 @@ namespace Euro.Core.ViewModels
 {
     public class BetsViewModel : MvxNavigationViewModel
     {
+        private readonly IUserNotificationService _userNotificationService;
         private List<Bet> _bets;
 
-        public IOrderedEnumerable<IGrouping<DateTime, Bet>> GroupedBets { get; private set; }
         private CollectionViewSource _collectionViewSource;
 
         public ICollectionView BetsView
@@ -40,15 +41,13 @@ namespace Euro.Core.ViewModels
             }
         }
 
+        public IOrderedEnumerable<IGrouping<DateTime, Bet>> GroupedBets { get; private set; }
         public ICommand SaveCommand { get; set; }
 
-        public BetsViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService) : base(logProvider, navigationService)
+        public BetsViewModel(IMvxLogProvider logProvider, IMvxNavigationService navigationService, IUserNotificationService userNotificationService) : base(logProvider, navigationService)
         {
             SaveCommand = new MvxCommand(Save);
-        }
-
-        private void Save()
-        {
+            _userNotificationService = userNotificationService;
         }
 
         public override Task Initialize()
@@ -61,6 +60,11 @@ namespace Euro.Core.ViewModels
                           select g;
 
             return Task.CompletedTask;
+        }
+
+        private void Save()
+        {
+            _userNotificationService.Show("Successfully saved.");
         }
     }
 }

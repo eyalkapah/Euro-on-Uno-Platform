@@ -5,12 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MvvmCross.Uno" Version="6.4.0" />
-    <PackageReference Include="MvvmCross.Uno.Plugins" Version="6.4.0" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <Compile Include="Services\IUserNotificationService.cs" />
+    <Compile Include="Services\UserNotificationService.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MvvmCross.Uno" Version="6.4.0" />
+    <PackageReference Include="MvvmCross.Uno.Plugins" Version="6.4.0" />
+  </ItemGroup>
 </Project>
