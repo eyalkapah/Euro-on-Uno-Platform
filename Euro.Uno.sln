@@ -17,8 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Euro.Core", "Euro.Core\Euro
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Euro.Uno\Euro.Uno.Shared\Euro.Uno.Shared.projitems*{39f1aee9-820d-4c7b-9929-08a581cb2d2a}*SharedItemsImports = 4
-		Euro.Uno\Euro.Uno.Shared\Euro.Uno.Shared.projitems*{59bb5bb0-4762-4bf4-add1-6b0d5d3b9ab8}*SharedItemsImports = 4
 		Euro.Uno\Euro.Uno.Shared\Euro.Uno.Shared.projitems*{6279c845-92f8-4333-ab99-3d213163593c}*SharedItemsImports = 13
 		Euro.Uno\Euro.Uno.Shared\Euro.Uno.Shared.projitems*{cd8261a3-f623-4fba-b8ef-6aea2cac71a1}*SharedItemsImports = 4
 	EndGlobalSection
@@ -190,6 +188,8 @@ Global
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.AppStore|x86.Build.0 = Release|x86
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.AppStore|x86.Deploy.0 = Release|x86
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|Any CPU.Build.0 = Debug|x86
+		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|ARM.ActiveCfg = Debug|ARM
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|ARM.Build.0 = Debug|ARM
 		{CD8261A3-F623-4FBA-B8EF-6AEA2CAC71A1}.Debug|ARM.Deploy.0 = Debug|ARM

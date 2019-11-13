@@ -9,4 +9,8 @@
     <PackageReference Include="MvvmCross.Uno.Plugins" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

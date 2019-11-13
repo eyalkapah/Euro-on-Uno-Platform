@@ -22,6 +22,17 @@
                 x:Name="GroupedBetsCVS"
                 IsSourceGrouped="True"
                 Source="{x:Bind Vm.GroupedBets, Mode=OneWay}" />
+
+            <DataTemplate x:Key="InAppNotificationWithButtonsTemplate">
+                <Grid Background="Black">
+                    <TextBlock
+                        Padding="0"
+                        Margin="8"
+                        FontSize="16"
+                        Foreground="White"
+                        Text="We saved your bet. Goodluck!" />
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </local:RootPage.Resources>
 
@@ -29,6 +40,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <CommandBar
@@ -172,12 +185,17 @@
 
         <inappnotification:InAppNotification
             x:Name="ExampleInAppNotification"
-            Grid.Row="1"
+            Grid.Row="2"
             AnimationDuration="00:00:00.1000000"
             Content="This is a test message."
             HorizontalOffset="0"
             ShowDismissButton="True"
             StackMode="Replace"
             VerticalOffset="100" />
+
+        <Button
+            Grid.Row="3"
+            Click="ShowInAppNotification_Click"
+            Content="Show InApp Notification" />
     </Grid>
 </local:RootPage>

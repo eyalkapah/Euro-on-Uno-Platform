@@ -27,10 +27,24 @@ namespace Euro.Uno.Shared.Views
     public sealed partial class BetsPage : RootPage
     {
         public BetsViewModel Vm => DataContext as BetsViewModel;
+        private ResourceDictionary _resources;
 
         public BetsPage()
         {
             this.InitializeComponent();
+
+            _resources = this.Resources;
+        }
+
+        private void ShowInAppNotification_Click(object sender, RoutedEventArgs e)
+        {
+            object inAppNotificationWithButtonsTemplate = null;
+            bool? isTemplatePresent = _resources?.TryGetValue("InAppNotificationWithButtonsTemplate", out inAppNotificationWithButtonsTemplate);
+
+            if (isTemplatePresent == true && inAppNotificationWithButtonsTemplate is DataTemplate template)
+            {
+                ExampleInAppNotification.Show(template, 0);
+            }
         }
     }
 }

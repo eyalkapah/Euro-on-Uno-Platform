@@ -53,8 +53,6 @@ namespace Euro.Uno.Shared.CustomControls.InAppNotification
             _animationTimer.Stop();
             Opened?.Invoke(this, EventArgs.Empty);
             //SetValue(AutomationProperties.NameProperty, StringExtensions.GetLocalized("WindowsCommunityToolkit_InAppNotification_NameProperty", "/Euro.Uno.Shared.CustomControls.InAppNotification/Resources"));
-            SetValue(AutomationProperties.NameProperty, "Test");
-            peer = FrameworkElementAutomationPeer.CreatePeerForElement(ContentTemplateRoot);
             if (Content?.GetType() == typeof(string))
             {
                 AutomateTextNotification(Content.ToString());
