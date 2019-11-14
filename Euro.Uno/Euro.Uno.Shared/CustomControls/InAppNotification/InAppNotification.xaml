@@ -83,15 +83,14 @@
     </Style>
 
     <ControlTemplate x:Key="MSEdgeNotificationTemplate" TargetType="customControls:InAppNotification">
-        <Grid>
+        <Grid Margin="0" Padding="0">
             <Grid
                 x:Name="RootGrid"
                 MaxWidth="{TemplateBinding MaxWidth}"
-                Margin="{TemplateBinding Margin}"
-                Padding="{TemplateBinding Padding}"
+                MaxHeight="50"
+                Margin="0"
+                Padding="0"
                 Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
                 RenderTransformOrigin="{TemplateBinding RenderTransformOrigin}"
                 Visibility="{TemplateBinding Visibility}">
 

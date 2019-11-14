@@ -19,16 +19,15 @@
                             <FontIcon Glyph="{x:Bind Glyph, Mode=OneWay}" />
                         </NavigationViewItem.Icon>
                     </NavigationViewItem>
-                    <!--<Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50" />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <
-                    </Grid>-->
                 </DataTemplate>
             </NavigationView.MenuItemTemplate>
+            <NavigationView.PaneFooter>
+                <NavigationViewItem
+                    Content="Connect account"
+                    Icon="Add"
+                    IsSelected="{x:Bind Vm.IsConnect, Mode=TwoWay}"
+                    Tapped="{x:Bind Vm.ConnectAccount}" />
+            </NavigationView.PaneFooter>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />

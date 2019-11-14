@@ -31,7 +31,7 @@ namespace Euro.Uno.Shared.Views
         {
             var textBlock = StripModule.Content as TextBlock;
             textBlock.Text = message;
-            StripModule.Show(3000);
+            StripModule.Show();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

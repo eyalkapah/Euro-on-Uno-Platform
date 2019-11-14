@@ -30,5 +30,9 @@ namespace Euro.Uno.Shared.Views
         {
             this.InitializeComponent();
         }
+
+        private void NavigationViewItem_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+        }
     }
 }

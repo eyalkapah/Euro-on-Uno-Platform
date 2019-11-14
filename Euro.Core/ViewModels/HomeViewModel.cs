@@ -31,6 +31,22 @@ namespace Euro.Core.ViewModels
             set => SetProperty(ref _selectedNavigationItem, value, () => OnSelectedNavigationItem(value));
         }
 
+        private bool _isConnect;
+
+        public bool IsConnect
+        {
+            get => _isConnect;
+            set => SetProperty(ref _isConnect, value);
+        }
+
+        private List<NavigationItem> _secondaryItems;
+
+        public List<NavigationItem> SecondaryItems
+        {
+            get => _secondaryItems;
+            set => SetProperty(ref _secondaryItems, value);
+        }
+
         public IMvxAsyncCommand ShowSecondPageCommand { get; }
 
         public HomeViewModel(
@@ -69,6 +85,16 @@ namespace Euro.Core.ViewModels
                 }
             };
 
+            SecondaryItems = new List<NavigationItem>
+            {
+                new NavigationItem
+                {
+                    Title = "Connect account",
+                    Glyph = IconsHelper.Home,
+                    TargetType = typeof(StandingsViewModel)
+                }
+            };
+
             SelectedNavigationItem = NavigationItems.First();
 
             return Task.CompletedTask;
@@ -83,6 +109,11 @@ namespace Euro.Core.ViewModels
             }
 
             await NavigationService.Navigate(value.TargetType);
+        }
+
+        public async void ConnectAccount()
+        {
+            await NavigationService.Navigate(typeof(LoginViewModel));
         }
     }
 }

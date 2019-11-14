@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,16 +24,18 @@ namespace Euro.Uno.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    [MvxRegionPresentation("FrameContent")]
-    public sealed partial class BetsPage : BetRootPage
+    [MvxDialogViewPresentation]
+    public sealed partial class LoginPage : MvxWindowsContentDialog
     {
-        public BetsViewModel Vm => DataContext as BetsViewModel;
+        public LoginViewModel Vm => DataContext as LoginViewModel;
 
-        public BetsPage()
+        public LoginPage()
         {
             this.InitializeComponent();
+        }
 
-            base.RegisterStripModule(InAppNotification);
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

@@ -182,8 +182,8 @@
         </ListView>
 
         <inappnotification:InAppNotification
-            x:Name="ExampleInAppNotification"
-            Grid.Row="2"
+            x:Name="InAppNotification"
+            Grid.Row="3"
             AnimationDuration="00:00:00.1000000"
             Background="Black"
             HorizontalOffset="0"
@@ -192,13 +192,14 @@
             VerticalOffset="100">
             <TextBlock
                 x:Name="StripTextBox"
-                Margin="8"
+                Margin="8,0"
                 FontSize="16"
                 Foreground="White" />
         </inappnotification:InAppNotification>
 
         <Button
             Grid.Row="3"
+            VerticalAlignment="Bottom"
             Command="{x:Bind Vm.SaveCommand}"
             Content="Show InApp Notification" />
     </Grid>
